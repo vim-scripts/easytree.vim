@@ -1,8 +1,8 @@
 " easytree.vim - simple tree file manager for vim
 " Maintainer: Dmitry "troydm" Geurkov <d.geurkov@gmail.com>
-" Version: 0.1
+" Version: 0.2
 " Description: easytree.vim is a siple tree file manager
-" Last Change: 1 October, 2012
+" Last Change: 19 October, 2012
 " License: Vim License (see :help license)
 " Website: https://github.com/troydm/easytree.vim
 "
@@ -18,8 +18,8 @@ set cpo&vim
 
 syntax match EasyTreeRoot /\%1l.*/
 syntax match EasyTreeRootUp /\%2l.*/
-syntax match EasyTreeDir /^\%>2l\s*[▸▾] .*$/
-syntax match EasyTreeFile /^\%>2l\s*[^▸▾]*$/
+syntax match EasyTreeDir /^\%>2l\s*[▸▾+-] .*$/
+syntax match EasyTreeFile /^\%>2l\s*[^▸▾+-]*$/
 
 highlight default link EasyTreeRoot   Operator
 highlight default link EasyTreeRootUp Title

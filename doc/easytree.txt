@@ -1,9 +1,9 @@
-easytree.vim for Vim version 7.0+   Last change: 1 October, 2012
+easytree.vim for Vim version 7.0+   Last change: 19 October, 2012
 
 Maintainer: Dmitry "troydm" Geurkov <d.geurkov@gmail.com>
-Version: 0.1
+Version: 0.2
 Description: easytree.vim is a simple tree file manager
-Last Change: 1 October, 2012
+Last Change: 19 October, 2012
 License: Vim License (see :help license)
 Website: https://github.com/troydm/easytree.vim
 
@@ -16,7 +16,7 @@ Help on using easytree.vim                                     *easytree.vim*
 ============================================================================================
  1. INTRODUCTION                                                  *easytree.vim-intro*
 
-easybuffer.vim - is a simple tree file manager for vim.
+easytree.vim - is a simple tree file manager for vim.
 While being highly inspired by NERDTree it differs from it in it's approach to a file 
 management and takes a more traditional vim yank/paste file copy/paste/delete approach
 It's also more simpler in it's functionality and has much less features compared to other
@@ -45,27 +45,33 @@ g:easytree_show_hidden_files     (Default: 0)
     You can toggle this in easytree buffer using I key
 
                                                          *g:easytree_highlight_cursor_line*
-g:easytree_highlight_cursor_line     (Default: 1)
+g:easytree_highlight_cursor_line (Default: 1)
     Highlight current line in easytree buffer
 
                                                          *g:easytree_ignore_dirs*
-g:easytree_ignore_dirs     (Default: "['*.AppleDouble*','*.DS_Store*']")
+g:easytree_ignore_dirs            (Default: ['*.AppleDouble*','*.DS_Store*'])
     directory patterns present in the following list won't show up in easytree buffer
-    this list is a standart python complaint list of str objects
 
                                                          *g:easytree_ignore_files*
-g:easytree_ignore_files     (Default: "['*.swp']")
+g:easytree_ignore_files           (Default: ['*.swp'])
     file patterns present in the following list won't show up in easytree buffer
-    this list is a standart python complaint list of str objects
 
                                                          *g:easytree_ignore_find_result*
-g:easytree_ignore_files     (Default: "[]")
+g:easytree_ignore_find_result     (Default: [])
     file patterns present in the following list won't show up as find results
-    this list is a standart python complaint list of str objects
+
+                                                         *g:easytree_use_plus_and_minus*
+g:easytree_use_plus_and_minus     (Default: 0)
+    if this option is enabled + and - will be used to display expanded/closed directories
 
                                                          *g:easytree_hijack_netrw*
 g:easytree_hijack_netrw     (Default: 1)
     if this option is enabled directories will be opened using easytree instead of |netrw|
+
+                                                         *g:easytree_width_auto_fit*
+g:easytree_width_auto_fit   (Default: 0)
+    if this option is enabled width of easytree window will be automaticly
+    resized if the longest line width will be greater than the easytree window width
 
 ============================================================================================
  2. USAGE                                                         *easytree.vim-usage*
@@ -98,9 +104,10 @@ g:easytree_hijack_netrw     (Default: 1)
         To refresh current expanded directory listing press |r| while having your line over that directory
         Pressing |R| will refresh whole easytree buffer
     File search:
-        Press |f| to search for a file/directory and specify a pattern filename pattern you want to search for
+        Press |f| while having your cursor over some directory to search in and 
+        specify a filename pattern you want to search for in that directory
         Press |n| and |N| to move your cursor over search results
-        Pressing |F| instead of |f| will have repeat last search
+        Pressing |F| instead of |f| will have last search pattern pretyped
     File management:
         To create a new file/directory press |m| while having your cursor over/in directory were you want to 
         create a new file/directory. If name specified will have / as it's suffix, a directory will be created,
@@ -113,6 +120,7 @@ g:easytree_hijack_netrw     (Default: 1)
         Same way to delete file/dir just move your cursor over that file/dir press |dd|
         To delete multiple files/dirs just select them in visual mode and press |d|
     Other actions:
+        To get information about file/dir just move your cursor over that file/dir and press |i|
         To toggle visibility of hidden files just press |I|
         To quickly access help just press |?|
         To close easytree window just press |q|
